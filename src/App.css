@@ -11,23 +11,24 @@ html, body {
   width: 100%;
   height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(-45deg, #e0f7fa, #e1bee7, #c8e6c9, #ffe0b2);
-  background-size: 400% 400%;
-  animation: bgFlow 12s ease infinite;
+  background: linear-gradient(270deg, #ffecd2, #fcb69f, #ff9a9e);
+  background-size: 600% 600%;
+  animation: gradientShift 15s ease infinite;
   overflow-x: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #222;
 }
 
-/* Background flow */
-@keyframes bgFlow {
+/* Animated gradient background */
+@keyframes gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* Wrapper */
+/* Wrapper for centering */
 .wrapper {
   display: flex;
   justify-content: center;
@@ -36,83 +37,77 @@ html, body {
   padding: 20px;
 }
 
-/* Main Chat Container */
+/* Main chat container */
 .di {
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
   width: 100%;
   max-width: 450px;
   height: 70vh;
-  border-radius: 20px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
   overflow: hidden;
-  animation: fadeIn 0.8s ease-out;
-  transition: transform 0.3s;
+  animation: fadeIn 0.5s ease-in;
 }
 
-
-/* Chat Messages */
+/* Chat messages container */
 .chat-messages {
   flex: 1;
   padding: 15px;
   overflow-y: auto;
-  background:#659ac5;
+  background: #f9f6f1;
   display: flex;
   flex-direction: column;
-  gap: 0px;
-  max-width: 100%
+  gap: 10px;
+
 }
 
-/* Messages */
+/* Each message */
 .chat-messages p {
   max-width: 70%;
   padding: 10px 15px;
   border-radius: 20px;
   word-wrap: break-word;
   font-size: 0.9rem;
-  line-height: 1.4;
+  line-height: 1.3;
   animation: messageFade 0.4s ease;
-  position: relative;
-  color:#1e495c;
-  max-width: 50%;
 }
 
-/* Received */
+/* Message from others */
 .chat-messages p:not(.self) {
-  background-color: #fff;
+  background-color: #393f472c;
   align-self: flex-start;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-/* Sent */
+/* Message from self */
 .chat-messages p.self {
-  background-color: #dcf8c6;
+  background-color: #42cc5060;
   align-self: flex-end;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-/* Username */
+/* Username in message */
 .chat-messages b {
   display: block;
   font-weight: 700;
   margin-bottom: 3px;
-  color: #075e54;
+  color: #0089e4bd;
   font-size: 0.85rem;
   text-transform: uppercase;
-  color: #000;
 }
 
-/* Input Area */
+/* Input section */
 .input-section {
-  padding: 12px 15px;
-  background: #f8f8f8;
+  padding: 10px 15px;
+  background: rgba(245, 245, 245, 0.95);
   display: flex;
   gap: 10px;
   align-items: center;
 }
 
-/* Input Box */
+/* Input box */
 .input-section input[type="text"] {
   flex-grow: 1;
   padding: 10px 15px;
@@ -120,136 +115,114 @@ html, body {
   border: 1px solid #ccc;
   font-size: 1rem;
   outline: none;
-  transition: 0.3s;
-  background: #fff;
   animation: glowPulse 3s infinite ease-in-out;
+  transition: all 0.3s ease;
+  background: #fff;
 }
 
 .input-section input[type="text"]:focus {
-  border-color: #075e54;
-  box-shadow: 0 0 12px #075e54;
+  border-color: #ff6f61;
+  box-shadow: 0 0 12px #ff6f61;
 }
 
-/* Send Button */
+/* Send button */
 .input-section button {
-  background-color: #075e54;
-  border: none;
+  background: linear-gradient(45deg, #ff6b6b, #f06595, #cc5de8, #845ef7, #5c7cfa);
+  background-size: 400% 400%;
+  animation: btnGradient 8s ease infinite;
   color: white;
-  padding: 10px 18px;
+  padding: 10px 20px;
   border-radius: 25px;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s, background-color 0.3s;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 0 12px rgba(255, 105, 180, 0.4);
 }
 
 .input-section button:hover {
-  background-color: #0a7867;
+  background-position: right center;
   transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(255, 105, 180, 0.7);
 }
 
-/* Login Container */
+/* Login container */
 .login-container {
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
   width: 100%;
   max-width: 400px;
-  padding: 30px 20px;
-  border-radius: 20px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  padding: 25px 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 15px;
   text-align: center;
-  animation: fadeInUp 0.8s ease-in-out;
+  animation: fadeInUp 0.6s ease-in-out;
 }
 
+/* Login inputs */
 .login-container input {
   padding: 12px 15px;
   border-radius: 25px;
   border: 1px solid #ccc;
   font-size: 1rem;
   outline: none;
-  transition: 0.3s;
   animation: glowPulse 3s infinite ease-in-out;
+  transition: all 0.3s ease;
+  background: #fff;
 }
 
 .login-container input:focus {
-  border-color: #075e54;
-  box-shadow: 0 0 12px #075e54;
+  border-color: #ff6f61;
+  box-shadow: 0 0 12px #ff6f61;
 }
-/* Fancy Gradient Button */
-button {
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
-  border: none;
-  color: #fff;
-  padding: 12px 22px;
-  border-radius: 30px;
+
+/* Login button */
+.login-container button {
+  background: linear-gradient(45deg, #ff6b6b, #f06595, #cc5de8, #845ef7, #5c7cfa);
+  background-size: 400% 400%;
+  animation: btnGradient 8s ease infinite;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 25px;
   font-weight: 600;
-  font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
+  border: none;
+  box-shadow: 0 0 12px rgba(255, 105, 180, 0.4);
 }
 
-/* Hover Animation */
-button:hover {
-  transform: scale(1.07);
-  box-shadow: 0 6px 20px rgba(0, 114, 255, 0.5);
-  background: linear-gradient(135deg, #0072ff, #00c6ff);
+.login-container button:hover {
+  background-position: right center;
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(255, 105, 180, 0.7);
 }
 
-/* Ripple Effect Animation */
-button::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  width: 300%;
-  height: 300%;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 50%;
-  transition: transform 0.6s ease;
-  z-index: 0;
+/* Glowing animation */
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 10px #ff9a9e; }
+  25% { box-shadow: 0 0 10px #fad0c4; }
+  50% { box-shadow: 0 0 10px #fbc2eb; }
+  75% { box-shadow: 0 0 10px #a18cd1; }
+  100% { box-shadow: 0 0 10px #ff9a9e; }
 }
 
-button:active::before {
-  transform: translate(-50%, -50%) scale(1);
-}
-
-/* Ensure Text Above Ripple */
-button span {
-  position: relative;
-  z-index: 2;
-}
-
-.chat-messages::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
-}
-
-.chat-messages::-webkit-scrollbar-track {
-  background: transparent;
+/* Button gradient animation */
+@keyframes btnGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Animations */
-@keyframes glowPulse {
-  0% { box-shadow: 0 0 5px #00bcd4; }
-  25% { box-shadow: 0 0 5px #7b1fa2; }
-  50% { box-shadow: 0 0 5px #4caf50; }
-  75% { box-shadow: 0 0 5px #ff5722; }
-  100% { box-shadow: 0 0 5px #00bcd4; }
-}
-
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
+  from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(25px); }
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -258,27 +231,35 @@ button span {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive */
+/* Scrollbar styling */
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-messages::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+.chat-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Responsive Design */
 @media (max-width: 500px) {
   .di {
     height: 80vh;
-    max-width: 100%;
-    border-radius: 0;
+    max-width: 90vw;
+    border-radius: 10px;
   }
 
   .login-container {
+    width: 100%;
     max-width: 100%;
-    border-radius: 0;
-    padding: 25px 15px;
+    border-radius: 10px;
+    padding: 20px 15px;
   }
 }
 
-
 .p-btn{
-  text-align: center;
-   font-family: 'Segoe UI', Tahoma, Geneva, ;
-   font-weight: 600;
-   cursor: pointer;
+    text-align: center;
+    cursor: pointer;
 }
-
-
