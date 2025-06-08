@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { io } from "socket.io-client";
 import "./App.css"
-import { AiFillSun } from "react-icons/ai";
+
 
 const socket = io("http://localhost:4000");
 
@@ -55,7 +55,7 @@ function App() {
   return (
     <>
     
-    <p className={'p-btn'} onClick={()=>{setMode(!mode)}} ><AiFillSun /></p>
+    <p className={'p-btn'} onClick={()=>{setMode(!mode)}} >Dark</p>
     {mode?"": <body style={{background:"#0E121B", color:"white"}}></body>}
     <div className="di" >
       <div className="chat-messages">
