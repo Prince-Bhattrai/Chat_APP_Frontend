@@ -4,7 +4,7 @@ import { io } from "socket.io-client";
 import "./App.css"
 import { AiFillSun } from "react-icons/ai";
 
-const socket = io("https://chat-app-backend-p26f.onrender.com");
+const socket = io("http://localhost:4000");
 
 
 function App() {
