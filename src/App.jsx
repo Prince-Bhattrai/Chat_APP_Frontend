@@ -1,11 +1,7 @@
-
 import React, { useEffect, useState } from 'react';
 import { io } from "socket.io-client";
 import "./App.css"
-
-
 const socket = io("http://localhost:4000");
-
 
 function App() {
   const [username, setUsername] = useState("");
@@ -55,7 +51,7 @@ function App() {
   return (
     <>
     
-    <p className={'p-btn'} onClick={()=>{setMode(!mode)}} >{mode?"Dark":"Light}</p>
+    <p className={'p-btn'} onClick={()=>{setMode(!mode)}} >{mode?"Dark":"Light"}</p>
     {mode?"": <body style={{background:"#0E121B", color:"white"}}></body>}
     <div className="di" >
       <div className="chat-messages">
@@ -83,3 +79,4 @@ function App() {
 }
 
 export default App;
+
