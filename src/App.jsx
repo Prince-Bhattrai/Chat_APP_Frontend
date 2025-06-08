@@ -1,13 +1,18 @@
+
 import React, { useEffect, useState } from 'react';
 import { io } from "socket.io-client";
 import "./App.css"
+import { AiFillSun } from "react-icons/ai";
+
 const socket = io("https://chat-app-backend-p26f.onrender.com");
+
 
 function App() {
   const [username, setUsername] = useState("");
   const [message, setMessage] = useState("");
   const [chat, setChat] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const[mode,setMode] = useState(true)
 
   useEffect(() => {
     socket.on("chat_message", (data) => {
@@ -48,7 +53,11 @@ function App() {
   }
 
   return (
-    <div className="di">
+    <>
+    
+    <p className={'p-btn'} onClick={()=>{setMode(!mode)}} ><AiFillSun /></p>
+    {mode?"": <body style={{background:"#0E121B", color:"white"}}></body>}
+    <div className="di" >
       <div className="chat-messages">
         {chat.map((msg, i) => (
           <p key={i} className={msg.username === username ? "self" : ""}>
@@ -69,7 +78,7 @@ function App() {
         />
         <button onClick={messageHandler}>Send</button>
       </div>
-    </div>
+    </div></>
   );
 }
 
