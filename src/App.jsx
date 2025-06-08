@@ -55,7 +55,7 @@ function App() {
   return (
     <>
     
-    <p className={'p-btn'} onClick={()=>{setMode(!mode)}} >Dark</p>
+    <p className={'p-btn'} onClick={()=>{setMode(!mode)}} >{mode?"Dark":"Light}</p>
     {mode?"": <body style={{background:"#0E121B", color:"white"}}></body>}
     <div className="di" >
       <div className="chat-messages">
