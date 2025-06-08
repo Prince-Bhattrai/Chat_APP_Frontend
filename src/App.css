@@ -1,0 +1,177 @@
+/* General resets and fonts */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background:white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main chat container */
+.di {
+  background: white;
+  width: 100%;
+  max-width: 450px;
+  height: 70vh;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* Chat messages container */
+.chat-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background: #e5ddd5;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Each message */
+.chat-messages p {
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  word-wrap: break-word;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+/* Message from others */
+.chat-messages p:not(.self) {
+  background-color: #fff;
+  align-self: flex-start;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+/* Message from self */
+.chat-messages p.self {
+  background-color: #dcf8c6;
+  align-self: flex-end;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+/* Username style in message */
+.chat-messages b {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 3px;
+  color: #075e54;
+  font-size: 0.85rem;
+}
+
+/* Input section */
+.input-section {
+  padding: 10px 15px;
+  background: #f0f0f0;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Input box */
+.input-section input[type="text"] {
+  flex-grow: 1;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input-section input[type="text"]:focus {
+  border-color: #075e54;
+}
+
+/* Send button */
+.input-section button {
+  background-color: #075e54;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.input-section button:hover {
+  background-color: #0a7867;
+}
+
+/* Username login container */
+.login-container {
+  background: white;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: center;
+}
+
+.login-container input {
+  padding: 12px 15px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.login-container input:focus {
+  border-color: #075e54;
+}
+
+.login-container button {
+  background-color: #075e54;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-container button:hover {
+  background-color: #0a7867;
+}
+
+/* Scrollbar styling for chat */
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 3px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+  .di {
+    height: 80vh;
+    max-width: 100%;
+    border-radius: 0;
+  }
+  .login-container {
+    max-width: 100%;
+    border-radius: 0;
+  }
+}
