@@ -85,10 +85,29 @@ body, html {
   font-size: 1rem;
   outline: none;
   transition: border-color 0.3s;
+  animation: aniMationName 3s linear infinite;
 }
 
 .input-section input[type="text"]:focus {
   border-color: #075e54;
+}
+
+@keyframes aniMationName{
+  0%{
+    box-shadow:0 0 20px blue ;
+
+  }
+  25%{
+    box-shadow:0 0  20px indigo;
+  }
+  50%{
+    box-shadow: 0 0 20px purple;
+  }
+  75%{
+    border: 0 0 20px rgb(238, 54, 85);
+  }100%{
+    border: 0 0 20px crimson;
+  }
 }
 
 /* Send button */
